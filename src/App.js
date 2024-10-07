@@ -27,9 +27,9 @@ function App() {
             <div className='card-description'>
               <h2>{item.name.common}</h2>
               <ol className='card-list'>
-                <li>Population : {item.population}</li>
-                <li>Region : {item.region}</li>
-                <li>Capital City : {item.capital}</li>
+                <li>Population : <span>{item.population}</span></li>
+                <li>Region : <span>{item.region}</span></li>
+                <li>Capital City : <span>{item.capital}</span></li>
               </ol>
             </div>
 

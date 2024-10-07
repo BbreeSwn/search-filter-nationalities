@@ -41,6 +41,21 @@ ul,ol{
   list-style: none;
 }
 
+/* Media Queries สำหรับหน้าจอโทรศัพท์มือถือ */
+@media (max-width: 768px) {
+  .row {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* ปรับขนาด grid ให้เล็กลง */
+    grid-gap: 24px; /* ลดช่องว่างระหว่างการ์ด */
+  }
 
-@media screen and(max-width:690px) {
+  .card-body {
+    padding: 20px 10px; /* ลด padding เพื่อให้พอดีกับหน้าจอ */
+  }
+
+  .card-title {
+    max-height: 100px; /* ลดความสูงของรูปภาพการ์ด */
+  }
 }
+
+
+
