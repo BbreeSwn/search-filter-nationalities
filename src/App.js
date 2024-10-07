@@ -15,13 +15,25 @@ function App() {
 
   return (
     <div className="container">
-      <ul>
+      <ul className='row'>
         {countries.map((item, index) => {
           return (
             <li   key={index}>
-            <div>
+            <div  className='card'>
+              <div className='card-title'>
               <img src={item.flags.svg} alt={item.name}/>
-              {item.name.common} | {item.region} | {item.population}
+              </div>
+              <div className='card-body'>
+            <div className='card-description'>
+              <h2>{item.name.common}</h2>
+              <ol className='card-list'>
+                <li>Population : {item.population}</li>
+                <li>Region : {item.region}</li>
+                <li>Capital City : {item.capital}</li>
+              </ol>
+            </div>
+
+              </div>
             </div>
             </li>
           );
