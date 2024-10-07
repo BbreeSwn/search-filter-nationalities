@@ -1,21 +1,32 @@
-import './App.css';
-import {useState} from 'react'
+import "./App.css";
+import { useState, useEffect } from "react";
 
 function App() {
-const data = [
-  {id:1,name:"Thailand",region:"Asia",population:100},
-  {id:2,name:"Japan",region:"Asia",population:50},
-]
+  const [countries, setCountries] = useState([]);
 
-const [countries , setCountries] = useState(data)
+  useEffect(() => {
+    fetch("https://restcountries.com/v3.1/all")
+      .then((res) => res.json())
+      .then((data) => {
+        setCountries(data);
+        console.log(data);
+      });
+  }, []);
 
   return (
-    <div className='container'>
-<ul>
-{countries.map((item)=>{
-return<li key={item.id}>{item.name} | {item.region}</li>
-    })}
-</ul>
+    <div className="container">
+      <ul>
+        {countries.map((item, index) => {
+          return (
+            <li   key={index}>
+            <div>
+              <img src={item.flags.svg} alt={item.name}/>
+              {item.name.common} | {item.region} | {item.population}
+            </div>
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 }
