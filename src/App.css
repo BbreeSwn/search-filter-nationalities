@@ -55,6 +55,9 @@ ul,ol{
   .card-title {
     max-height: 100px; /* ลดความสูงของรูปภาพการ์ด */
   }
+  .card-list li{
+    margin-top: 4px;
+  }
 }
 
 
