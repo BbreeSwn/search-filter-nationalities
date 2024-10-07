@@ -40,6 +40,15 @@
 ul,ol{
   list-style: none;
 }
+.search-container{
+  margin: 48px 0;
+}
+.search-input{
+  padding: 1.4em 1.4em;
+  width: 100%;
+  font-size: 18px;
+  box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+}
 
 /* Media Queries สำหรับหน้าจอโทรศัพท์มือถือ */
 @media (max-width: 768px) {

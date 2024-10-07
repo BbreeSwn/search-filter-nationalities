@@ -15,26 +15,36 @@ function App() {
 
   return (
     <div className="container">
-      <ul className='row'>
+      <div className="search-container">
+        <label htmlFor="search-form">
+          <input type="text" className="search-input" placeholder="Searching" />
+        </label>
+      </div>
+      <ul className="row">
         {countries.map((item, index) => {
           return (
-            <li   key={index}>
-            <div  className='card'>
-              <div className='card-title'>
-              <img src={item.flags.svg} alt={item.name}/>
+            <li key={index}>
+              <div className="card">
+                <div className="card-title">
+                  <img src={item.flags.svg} alt={item.name} />
+                </div>
+                <div className="card-body">
+                  <div className="card-description">
+                    <h2>{item.name.common}</h2>
+                    <ol className="card-list">
+                      <li>
+                        Population : <span>{item.population}</span>
+                      </li>
+                      <li>
+                        Region : <span>{item.region}</span>
+                      </li>
+                      <li>
+                        Capital City : <span>{item.capital}</span>
+                      </li>
+                    </ol>
+                  </div>
+                </div>
               </div>
-              <div className='card-body'>
-            <div className='card-description'>
-              <h2>{item.name.common}</h2>
-              <ol className='card-list'>
-                <li>Population : <span>{item.population}</span></li>
-                <li>Region : <span>{item.region}</span></li>
-                <li>Capital City : <span>{item.capital}</span></li>
-              </ol>
-            </div>
-
-              </div>
-            </div>
             </li>
           );
         })}
