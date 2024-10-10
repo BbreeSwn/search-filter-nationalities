@@ -45,7 +45,7 @@ ul,ol{
 }
 .search-input{
   padding: 1.4em 1.4em;
-  width: 100%;
+  width: 96%;
   font-size: 18px;
   box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
 }
@@ -66,6 +66,11 @@ ul,ol{
   }
   .card-list li{
     margin-top: 4px;
+  }
+  .search-input{
+    padding: 1em 1em;
+    width: 90%;
+    font-size: 18px;
   }
 }
 

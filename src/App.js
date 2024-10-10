@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 
 function App() {
   const [countries, setCountries] = useState([]);
+  const [word, setWord] = useState("");
+  const [dataFilter] = useState(["name","capital"]);
 
   useEffect(() => {
     fetch("https://restcountries.com/v3.1/all")
@@ -13,15 +15,37 @@ function App() {
       });
   }, []);
 
+  const searchCountries = (countries) => {
+    return countries.filter((item) => {
+      return dataFilter.some((filter) => {
+        if (filter === "name" && item.name && item.name.common) {
+          // ตรวจสอบว่าค่าใน item.name.common เป็นสตริงหรือไม่
+          return item.name.common.toLowerCase().includes(word.toLowerCase());
+        }
+        if (filter === "capital" && item.capital && Array.isArray(item.capital)) {
+          // ตรวจสอบว่าเมืองหลวงเป็นอาร์เรย์และค้นหาในค่าแรกของอาร์เรย์
+          return item.capital[0]?.toLowerCase().includes(word.toLowerCase());
+        }
+        return false;
+      });
+    });
+  };
+
   return (
     <div className="container">
       <div className="search-container">
         <label htmlFor="search-form">
-          <input type="text" className="search-input" placeholder="Searching" />
+          <input
+            type="text"
+            className="search-input"
+            placeholder="Search for countries by name or capital city"
+            value={word}
+            onChange={(e) => setWord(e.target.value)}
+          />
         </label>
       </div>
       <ul className="row">
-        {countries.map((item, index) => {
+        {searchCountries(countries).map((item, index) => {
           return (
             <li key={index}>
               <div className="card">
