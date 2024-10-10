@@ -15,6 +15,10 @@ function App() {
       });
   }, []);
 
+  const formatNumber=(num)=> {
+    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+}
+
   const searchCountries = (countries) => {
     return countries.filter((item) => {
       return dataFilter.some((filter) => {
@@ -57,7 +61,7 @@ function App() {
                     <h2>{item.name.common}</h2>
                     <ol className="card-list">
                       <li>
-                        Population : <span>{item.population}</span>
+                        Population : <span>{formatNumber(item.population)}</span>
                       </li>
                       <li>
                         Region : <span>{item.region}</span>
